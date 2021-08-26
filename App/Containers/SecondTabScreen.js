@@ -1,5 +1,6 @@
 import React from 'react';
 import {SCREEN_KEYS} from '../Utilities/Constants';
+import {NavigationService} from '../Services/NavigatorServices';
 import {
   CustomButton,
   CustomNavBar,
@@ -9,7 +10,7 @@ import {
 
 const SecondTabScreen = ({navigation, route}) => {
   const navigateToScreenWithNoTabs = () => {
-    navigation.navigate(SCREEN_KEYS.SCREEN_WITH_NO_TABS);
+    NavigationService.pushScreen(navigation, SCREEN_KEYS.SCREEN_WITH_NO_TABS);
   };
 
   return (

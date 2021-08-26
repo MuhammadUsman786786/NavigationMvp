@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {CommonActions} from '@react-navigation/native';
 import {DrawerActions} from '@react-navigation/compat';
+import {StackActions} from '@react-navigation/native';
 
 export const navigationRef = React.createRef();
 
@@ -43,11 +44,17 @@ const getCurrentRouteName = () => {
   return navigationRef.current?.getRootState?.().routes?.[0]?.name;
 };
 
+const pushScreen = (navigation, routeName) => {
+  const pushAction = StackActions.push(routeName);
+  navigation.dispatch(pushAction);
+};
+
 export const NavigationService = {
   goBack: goBack,
   navigate: navigate,
   reset: reset,
   dispatch: dispatch,
+  pushScreen: pushScreen,
   toggleDrawer: toggleDrawer,
   resetAndNavigate: resetAndNavigate,
   getCurrentRouteName: getCurrentRouteName,

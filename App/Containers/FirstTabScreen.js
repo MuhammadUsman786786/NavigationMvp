@@ -1,17 +1,23 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
-import {ApplicationStyles} from '../Themes';
 import {SCREEN_KEYS} from '../Utilities/Constants';
-import {CustomNavBar} from '../Components';
-import {CustomButton, SafeAreaContainer, Title} from '../Components';
+import {NavigationService} from '../Services/NavigatorServices';
+import {
+  CustomButton,
+  CustomNavBar,
+  SafeAreaContainer,
+  Title,
+} from '../Components';
 
 const FirstTabScreen = ({navigation, route}) => {
   const navigateToScreenWithTabs = () => {
-    navigation.navigate(SCREEN_KEYS.FIRST_TAB_SCREEN_WITH_BOTTOM_TABS);
+    NavigationService.pushScreen(
+      navigation,
+      SCREEN_KEYS.FIRST_TAB_SCREEN_WITH_BOTTOM_TABS,
+    );
   };
 
   const navigateToScreenWithNoTabs = () => {
-    navigation.navigate(SCREEN_KEYS.SCREEN_WITH_NO_TABS);
+    NavigationService.pushScreen(navigation, SCREEN_KEYS.SCREEN_WITH_NO_TABS);
   };
 
   return (

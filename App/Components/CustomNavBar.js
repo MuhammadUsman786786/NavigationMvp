@@ -19,11 +19,7 @@ const CustomNavBar = ({
   const goBack = () => {
     navigation.goBack();
   };
-
-  const toggleDrawer = () => {
-    navigation.dispatch(DrawerActions.toggleDrawer());
-  };
-
+  
   return (
     <View style={[styles.headerContainer]}>
       <View style={styles.leftContainer}>
@@ -34,7 +30,7 @@ const CustomNavBar = ({
             color={Colors.white}
             size={MetricsMod.thirty}
             container={styles.icon}
-            onPress={toggleDrawer}
+            onPress={NavigationService.toggleDrawer}
           />
         )}
         {isBack && (
