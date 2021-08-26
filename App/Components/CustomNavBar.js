@@ -1,14 +1,19 @@
 import React from 'react';
 import IconButton from './IconButton';
 import {ICON_TYPES} from '../Utilities/Constants';
-import {StyleSheet, Text, View} from 'react-native';
+import {Image, StyleSheet, Text, View} from 'react-native';
 import {NavigationService} from '../Services/NavigatorServices';
-import {ApplicationStyles, Colors, MetricsMod} from '../Themes';
+import {ApplicationStyles, Colors, Images, MetricsMod} from '../Themes';
 import {scale, moderateScale} from 'react-native-size-matters';
 import {useNavigation} from '@react-navigation/native';
 import {DrawerActions} from '@react-navigation/compat';
 
-const CustomNavBar = ({title, isBack = false, isLeftDrawer = false}) => {
+const CustomNavBar = ({
+  title,
+  isBack = false,
+  isCenterLogo,
+  isLeftDrawer = false,
+}) => {
   const navigation = useNavigation();
 
   const goBack = () => {
@@ -43,9 +48,16 @@ const CustomNavBar = ({title, isBack = false, isLeftDrawer = false}) => {
           />
         )}
       </View>
-      <Text style={styles.title} numberOfLines={1}>
-        {title || ''}
-      </Text>
+      <View style={styles.middleContainer}>
+        {!!title && (
+          <Text style={styles.title} numberOfLines={1}>
+            {title || ''}
+          </Text>
+        )}
+        {isCenterLogo && (
+          <Image source={Images.headerLogo} style={styles.logo} />
+        )}
+      </View>
       <View style={styles.rightContainer} />
     </View>
   );
@@ -67,11 +79,20 @@ const styles = StyleSheet.create({
   leftContainer: {
     width: scale(60),
   },
+  middleContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   rightContainer: {
     width: scale(60),
   },
+  logo: {
+    width: moderateScale(32),
+    height: moderateScale(32),
+    borderRadius: moderateScale(6),
+  },
   title: {
-    flex: 1,
     color: Colors.white,
     textAlign: 'center',
   },

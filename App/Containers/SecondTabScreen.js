@@ -11,9 +11,10 @@ const SecondTabScreen = ({navigation, route}) => {
   const navigateToScreenWithNoTabs = () => {
     navigation.navigate(SCREEN_KEYS.SCREEN_WITH_NO_TABS);
   };
+
   return (
     <SafeAreaContainer>
-      <CustomNavBar title={route?.name} isLeftDrawer />
+      <CustomNavBar isCenterLogo isLeftDrawer />
       <Title text={route?.name} />
       <CustomButton
         title={'NavigateToScreenWithNoTabs'}

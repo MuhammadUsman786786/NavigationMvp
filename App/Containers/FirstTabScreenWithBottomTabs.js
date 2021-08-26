@@ -10,7 +10,7 @@ const FirstTabScreenWithBottomTabs = ({navigation, route}) => {
 
   return (
     <SafeAreaContainer style={styles.mainContainer}>
-      <CustomNavBar title={route?.name} isBack />
+      <CustomNavBar isCenterLogo isBack />
       <Title text={route?.name} />
       <CustomButton title={'Go Back'} onPress={navigate} />
     </SafeAreaContainer>

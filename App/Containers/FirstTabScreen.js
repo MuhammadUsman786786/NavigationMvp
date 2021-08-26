@@ -16,7 +16,7 @@ const FirstTabScreen = ({navigation, route}) => {
 
   return (
     <SafeAreaContainer>
-      <CustomNavBar title={route?.name} isLeftDrawer />
+      <CustomNavBar isLeftDrawer isCenterLogo />
       <Title text={route?.name} />
       <CustomButton
         title={'NavigateToScreenWithTabs'}
