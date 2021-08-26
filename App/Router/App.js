@@ -14,6 +14,11 @@ const Drawer = createDrawerNavigator();
 const DrawerNavigationRouter = () => {
   return (
     <Drawer.Navigator
+      drawerPosition={'right'}
+      drawerType="slide"
+      options={{unmountOnBlur: true}}
+      overlayColor="transparent"
+      drawerStyle={{width: '100%'}}
       screenOptions={{headerShown: false}}
       drawerContent={props => <CustomDrawerComponent {...props} />}>
       <Drawer.Screen

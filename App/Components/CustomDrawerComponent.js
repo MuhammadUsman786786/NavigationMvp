@@ -25,9 +25,7 @@ const CustomDrawerComponent = () => {
   return (
     <SafeAreaContainer statusBarColor={Colors.white}>
       <Item text={'Navigate To Empty Screen'} onPress={navigateToEmptyScreen} />
-      <Item text={'text'} />
-      <Item text={'text'} />
-      <Item text={'text'} />
+      <Item text={'Navigate To Tab Screen'} onPress={navigateToEmptyScreen} />
     </SafeAreaContainer>
   );
 };
