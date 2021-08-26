@@ -14,7 +14,7 @@ const Drawer = createDrawerNavigator();
 const DrawerNavigationRouter = () => {
   return (
     <Drawer.Navigator
-      drawerPosition={'left'}
+      drawerPosition={'right'}
       drawerType="slide"
       options={{unmountOnBlur: true}}
       overlayColor="transparent"
