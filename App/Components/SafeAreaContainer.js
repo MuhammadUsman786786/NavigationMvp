@@ -2,6 +2,7 @@ import React from 'react';
 import {Keyboard, StatusBar, StyleSheet, View} from 'react-native';
 import {ApplicationStyles, Colors} from '../Themes';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {printLogs} from '../Config/ReactotronConfig';
 
 const SafeAreaContainer = ({
   style,

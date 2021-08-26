@@ -13,13 +13,14 @@ const CustomNavBar = ({
   isBack = false,
   isCenterLogo,
   isLeftDrawer = false,
+  isRightDrawer = false,
 }) => {
   const navigation = useNavigation();
 
   const goBack = () => {
     navigation.goBack();
   };
-  
+
   return (
     <View style={[styles.headerContainer]}>
       <View style={styles.leftContainer}>
@@ -54,7 +55,18 @@ const CustomNavBar = ({
           <Image source={Images.headerLogo} style={styles.logo} />
         )}
       </View>
-      <View style={styles.rightContainer} />
+      <View style={styles.rightContainer}>
+        {isRightDrawer && (
+          <IconButton
+            name={'reorder-three'}
+            type={ICON_TYPES.IonIcons}
+            color={Colors.white}
+            size={MetricsMod.thirty}
+            container={styles.icon}
+            onPress={NavigationService.toggleDrawer}
+          />
+        )}
+      </View>
     </View>
   );
 };
@@ -82,6 +94,7 @@ const styles = StyleSheet.create({
   },
   rightContainer: {
     width: scale(60),
+    alignItems: 'flex-end',
   },
   logo: {
     width: moderateScale(32),

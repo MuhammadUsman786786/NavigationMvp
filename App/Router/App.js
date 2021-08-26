@@ -6,19 +6,19 @@ import {NavigationContainer} from '@react-navigation/native';
 import {BottomStackNavigator} from './BottomStackNavigator';
 import {navigationRef} from '../Services/NavigatorServices';
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {createStackNavigator} from '@react-navigation/stack';
 
-const Stack = createNativeStackNavigator();
+const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 
 const DrawerNavigationRouter = () => {
   return (
     <Drawer.Navigator
-      drawerPosition={'right'}
+      drawerPosition={'left'}
       drawerType="slide"
       options={{unmountOnBlur: true}}
       overlayColor="transparent"
-      drawerStyle={{width: '100%'}}
+      drawerStyle={{width: '70%'}}
       screenOptions={{headerShown: false}}
       drawerContent={props => <CustomDrawerComponent {...props} />}>
       <Drawer.Screen
@@ -33,7 +33,7 @@ const App = () => {
   return (
     <NavigationContainer ref={navigationRef}>
       <Stack.Navigator
-        initialRouteName={SCREEN_KEYS.DRAWER_NAVIGATION_ROUTER}
+        initialRouteName={SCREEN_KEYS.SIGN_IN_SCREEN}
         screenOptions={{headerShown: false}}>
         <Stack.Screen
           name={SCREEN_KEYS.SIGN_IN_SCREEN}

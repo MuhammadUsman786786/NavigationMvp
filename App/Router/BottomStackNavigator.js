@@ -1,6 +1,6 @@
 import React from 'react';
 import {SCREEN_KEYS} from '../Utilities/Constants';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {
   FirstTabScreen,
@@ -8,11 +8,12 @@ import {
   SecondTabScreen,
   ThirdTabScreen,
 } from '../Containers';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const BottomTabNavigator = createBottomTabNavigator();
-const FirstTabStack = createNativeStackNavigator();
-const SecondTabStack = createNativeStackNavigator();
-const ThirdTabStack = createNativeStackNavigator();
+const FirstTabStack = createStackNavigator();
+const SecondTabStack = createStackNavigator();
+const ThirdTabStack = createStackNavigator();
 
 const FirstTabStackRouter = () => {
   return (
@@ -57,14 +58,32 @@ const BottomStackNavigator = () => {
       <BottomTabNavigator.Screen
         name={SCREEN_KEYS.FIRST_TAB_STACK}
         component={FirstTabStackRouter}
+        options={{
+          tabBarLabel: 'Home',
+          tabBarIcon: ({color, size}) => (
+            <MaterialCommunityIcons name="home" color={color} size={size} />
+          ),
+        }}
       />
       <BottomTabNavigator.Screen
         name={SCREEN_KEYS.SECOND_TAB_STACK}
         component={SecondTabStackRouter}
+        options={{
+          tabBarLabel: 'Updates',
+          tabBarIcon: ({color, size}) => (
+            <MaterialCommunityIcons name="bell" color={color} size={size} />
+          ),
+        }}
       />
       <BottomTabNavigator.Screen
         name={SCREEN_KEYS.THIRD_TAB_STACK}
         component={ThirdTabStackRouter}
+        options={{
+          tabBarLabel: 'Profile',
+          tabBarIcon: ({color, size}) => (
+            <MaterialCommunityIcons name="account" color={color} size={size} />
+          ),
+        }}
       />
     </BottomTabNavigator.Navigator>
   );
